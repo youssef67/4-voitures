@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\VoitureRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=VoitureRepository::class)
@@ -19,16 +20,19 @@ class Voiture
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Regex("/[A-Z]{2}[0-9]{3,4}[A-Z]{2}/", message="L'immatriculation est incorrect")
      */
     private $immatriculation;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\Choice({3,5}, message="3 ou 5 portes possible")
      */
     private $nbPortes;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\Regex("/(19\d{2})|(200\d)|(201[0-3])/", message="date incorrect")
      */
     private $annee;
 

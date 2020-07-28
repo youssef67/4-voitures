@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Admninistration{% endblock %}
+
+{% block monTitre %}
+    {% if modif %}
+        Modification {{ voiture.immatriculation }}
+    {% else %}
+        Ajout
+    {% endif %}
+{% endblock %}
+{% block body %}
+{{form_start(form)}}
+    <div class="row no-gutters align-items-center text-center">
+        <div class="col-12">
+            {{form_row(form.immatriculation)}}
+        </div>
+        <div class="col-12">
+            {{form_row(form.nbPortes)}}
+        </div>
+        <div class="col-12">
+            {{form_row(form.annee)}}
+        </div>
+        <div class="col-12">
+            {{form_row(form.modele)}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="mx-auto">
+            <a href="{{path('admin_voitures')}}" class="btn btn-primary">Retour</a>
+            <input type="submit" class="btn btn-success" value="enregistrer">
+        </div>
+    </div>
+{{form_end(form)}}
+{% endblock %}
