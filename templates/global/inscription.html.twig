@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block monTitre %}Inscription{% endblock %}
+{% block body %}
+{{ form_start(form)}}
+    {{ form_widget(form)}}
+    <div class="row">
+        <input type="submit" class="col-lg-2 btn btn-primary mx-auto" value="valider">
+    </div>
+{{ form_end(form)}}
+
+{% endblock %}
